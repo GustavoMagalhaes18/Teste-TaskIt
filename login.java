@@ -280,4 +280,16 @@ public class login {
 
     }
 
+    @Test
+    public void loginDoUsuario(){
+
+        robo.findElement(By.className("modal-trigger")).click();
+        robo.findElement(By.id("login-sign-in")).sendKeys("abcde");
+        robo.findElement(By.id("password-sign-in")).sendKeys("0001");
+        robo.findElement(By.id("btn-submit-sign-in")).click();
+        robo.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        Assertions.assertEquals("Hi, Usuário de Teste", robo.findElement(By.className("me")).getText());
+
+    }
+
 }
